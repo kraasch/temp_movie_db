@@ -9,10 +9,12 @@ import { Wheel } from '../wheel/wheel';
   template: `
     <div class="card bg-base-100 w-96 shadow-sm">
       <figure>
-        <!--
-        <app-hoverimg imgUrl="{{image}}"/>
-        -->
-        <app-hoverimg imgUrl="https://flxt.tmsimg.com/assets/p12407944_p_v10_ac.jpg"/>
+        <a target="_blank" rel="noopener noreferrer" href="{{imdb}}">
+         <!--
+         <app-hoverimg imgUrl="{{image}}"/>
+         -->
+         <app-hoverimg imgUrl="https://flxt.tmsimg.com/assets/p12407944_p_v10_ac.jpg"/>
+        </a>
         <app-wheel progress="{{rating}}"/>
       </figure>
       <div class="card-body">
