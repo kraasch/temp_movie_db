@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   template: `
     <label class="swap swap-rotate">
       <!-- this hidden checkbox controls the state -->
-      <input type="checkbox" class="theme-controller" value="synthwave" />
+      <input type="checkbox" class="theme-controller" value="corporate" />
       <!-- sun icon -->
       <svg
         class="swap-off h-10 w-10 fill-current"

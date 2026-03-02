@@ -25,6 +25,9 @@ import { Component } from '@angular/core';
         <br />
         <br />
         <p>
+          Find the source code on <a href="https://github.com/kraasch/temp_movie_db">Github</a>.
+        <br />
+        <br />
           Copyright © {{year}} 	&mdash; <a class="link link-accent" href="https://kraasch.eu/">A. Kraasch</a>
         </p>
       </aside>
