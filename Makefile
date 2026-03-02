@@ -5,3 +5,7 @@ build:
 serve:
 	cd ./movie-db/ && ng serve movie-db
 
+upload:
+	make build
+	ssh_deploy ssh_deploy.conf
+
