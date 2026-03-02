@@ -1,23 +1,22 @@
 
 import { Component, Input } from '@angular/core';
+import { HoverImg } from '../hoverimg/hoverimg';
 
 @Component({
   selector: 'app-tile',
-  imports: [],
+  imports: [ HoverImg ],
   template: `
     <div class="card bg-base-100 w-96 shadow-sm">
       <figure>
-        <!--
-          <img src="{{image}}" alt="Movie" />
-        -->
-        <img src="https://flxt.tmsimg.com/assets/p12407944_p_v10_ac.jpg" alt="Movie" />
+        <!-- TODO: pass in image: <img src="{{image}}" alt="Movie" /> -->
+        <app-hoverimg imgUrl="https://flxt.tmsimg.com/assets/p12407944_p_v10_ac.jpg"/>
       </figure>
       <div class="card-body">
         <h2 class="card-title">{{title}} ({{fullLocation(culture)}}{{year}})</h2>
         <p>{{desc}}</p>
         <div class="card-actions justify-end">
           <a target="_blank" rel="noopener noreferrer" href="{{imdb}}">
-          <button class="btn btn-primary bnt-outline">More Info on IMDB</button>
+          <button class="btn btn-primary bnt-outline">{{rating}} on IMDB</button>
           </a>
         </div>
       </div>
