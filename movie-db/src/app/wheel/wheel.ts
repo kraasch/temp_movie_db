@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'app-wheel',
   imports: [],
   template: `
-    <div class="radial-progress text-primary" style="--value:{{getProg()}};" aria-valuenow="{{getProg()}}" role="progressbar">{{progress}}/10</div>
+    <div class="radial-progress text-accent" style="--value:{{getProg()}};" aria-valuenow="{{getProg()}}" role="progressbar">{{progress}}/10</div>
   `,
   styles: ``,
 })

@@ -4,10 +4,11 @@ import { RouterOutlet } from '@angular/router';
 import { Tile } from './tile/tile';
 import { TopNav } from './topnav/topnav';
 import { BotFooter } from './botfooter/botfooter';
+import { CookieBar } from './cookiebar/cookiebar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Tile, TopNav, BotFooter],
+  imports: [RouterOutlet, Tile, TopNav, BotFooter, CookieBar],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
