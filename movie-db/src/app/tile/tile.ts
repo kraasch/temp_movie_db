@@ -1,15 +1,19 @@
 
 import { Component, Input } from '@angular/core';
 import { HoverImg } from '../hoverimg/hoverimg';
+import { Wheel } from '../wheel/wheel';
 
 @Component({
   selector: 'app-tile',
-  imports: [ HoverImg ],
+  imports: [ HoverImg, Wheel ],
   template: `
     <div class="card bg-base-100 w-96 shadow-sm">
       <figure>
-        <!-- TODO: pass in image: <img src="{{image}}" alt="Movie" /> -->
+        <!--
+        <app-hoverimg imgUrl="{{image}}"/>
+        -->
         <app-hoverimg imgUrl="https://flxt.tmsimg.com/assets/p12407944_p_v10_ac.jpg"/>
+        <app-wheel progress="{{rating}}"/>
       </figure>
       <div class="card-body">
         <h2 class="card-title">{{title}} ({{fullLocation(culture)}}{{year}})</h2>
