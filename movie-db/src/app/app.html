@@ -1,6 +1,14 @@
 
 @for (item of items; track item.id) {
-<app-tile title="{{item.title}}"></app-tile>
+<app-tile
+  title="{{item.title}}"
+  year="{{item.yr}}"
+  watched="{{item.watched}}"
+  culture="{{item.culture}}"
+  desc="{{item.description}}"
+  image="{{item.img}}"
+>
+</app-tile>
 }
 <router-outlet />
 

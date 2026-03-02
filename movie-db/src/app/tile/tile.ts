@@ -7,14 +7,14 @@ import { Component, Input } from '@angular/core';
     <div class="card bg-base-100 w-96 shadow-sm">
       <figure>
         <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+          src="{{ image }}"
           alt="Movie" />
       </figure>
       <div class="card-body">
-        <h2 class="card-title">{{ title }}</h2>
-        <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+        <h2 class="card-title">{{title}} ({{culture}}, {{year}})</h2>
+        <p>{{desc}}</p>
         <div class="card-actions justify-end">
-          <button class="btn btn-primary bnt-outline">Buy Now</button>
+          <button class="btn btn-primary bnt-outline">More Info</button>
         </div>
       </div>
     </div>
@@ -27,4 +27,9 @@ import { Component, Input } from '@angular/core';
 })
 export class Tile {
   @Input() title: string = "";
+  @Input() year: string = "";
+  @Input() watched: string = "";
+  @Input() culture: string = "";
+  @Input() desc: string = "";
+  @Input() image: string = "";
 }
