@@ -1,22 +1,4 @@
 
-<app-topnav />
-<div class="mybox">
-@for (item of items; track item.id) {
-<app-tile
-  class="myitem"
-  title="{{item.title}}"
-  year="{{item.yr}}"
-  watched="{{item.watched}}"
-  culture="{{item.culture}}"
-  desc="{{item.description}}"
-  image="{{item.img}}"
-  rating="{{item.rating}}"
-  imdb="{{item.imdb}}"
->
-</app-tile>
-}
-</div>
-<app-botfooter />
-<app-cookiebar />
+<app-filterbar />
 <router-outlet />
 
