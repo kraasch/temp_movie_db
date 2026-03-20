@@ -11,9 +11,9 @@ import { Wheel } from '../wheel/wheel';
       <figure>
         <a target="_blank" rel="noopener noreferrer" href="{{imdb}}">
          <!--
-         <app-hoverimg imgUrl="https://flxt.tmsimg.com/assets/p12407944_p_v10_ac.jpg"/>
-         -->
          <app-hoverimg imgUrl="{{image}}"/>
+         -->
+         <app-hoverimg imgUrl="https://flxt.tmsimg.com/assets/p12407944_p_v10_ac.jpg"/>
         </a>
         <app-wheel progress="{{rating}}"/>
       </figure>
