@@ -8,139 +8,8 @@ import { CookieBar } from '../cookiebar/cookiebar';
 @Component({
   selector: 'app-filterbar',
   imports: [Tile, TopNav, BotFooter, CookieBar],
-  template: `
-  <div class="drawer">
-    <input
-      id="my-drawer-1"
-      type="checkbox"
-      class="drawer-toggle"
-      [checked]="drawerOpen"
-      (change)="drawerOpen = $any($event.target).checked"
-    />
-    <div class="drawer-content">
-
-      <!-- Page content here
-        <label for="my-drawer-1" class="btn drawer-button">Filter</label>
-      -->
-      <app-topnav (newItemEvent)="addItem($event)" />
-      <div class="mybox">
-      @for (item of items; track item.id) {
-      <app-tile
-        class="myitem"
-        title="{{item.title}}"
-        year="{{item.yr}}"
-        watched="{{item.watched}}"
-        culture="{{item.culture}}"
-        desc="{{item.description}}"
-        image="{{item.img}}"
-        rating="{{item.rating}}"
-        imdb="{{item.imdb}}"
-      >
-      </app-tile>
-      }
-      </div>
-      <app-botfooter />
-      <app-cookiebar />
-      <!-- Page content end -->
-
-    </div>
-    <div class="drawer-side">
-      <label for="my-drawer-1" aria-label="close sidebar" class="drawer-overlay"></label>
-      <ul class="menu bg-base-200 min-h-full w-80 p-4">
-
-        <!-- Sidebar content here -->
-        <div class="divider divider-secondary">Search</div>
-        <li>
-          <input type="text" placeholder="Type here" class="input" />
-        </li>
-
-        <div class="divider divider-secondary">Culture</div>
-        <form class="my-padded-tags-form">
-          <input class="btn btn-square" type="reset" value="×"/>
-          <input aria-label="Japan"   class="btn" type="checkbox" name="frameworks" />
-          <input aria-label="Germany" class="btn" type="checkbox" name="frameworks" />
-          <input aria-label="USA"     class="btn" type="checkbox" name="frameworks" />
-          <input aria-label="Italy"   class="btn" type="checkbox" name="frameworks" />
-          <input aria-label="Sweden"  class="btn" type="checkbox" name="frameworks" />
-          <input aria-label="Korea"   class="btn" type="checkbox" name="frameworks" />
-          <input aria-label="France"  class="btn" type="checkbox" name="frameworks" />
-          <input aria-label="Mexico"  class="btn" type="checkbox" name="frameworks" />
-        </form>
-
-        <div class="divider divider-secondary">Decades</div>
-        <div class="w-full max-w-xs">
-          <input type="range" min="0" max="100" value="100" class="range" step="10" />
-          <div class="flex justify-between px-2.5 mt-2 text-xs">
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-            <span>|</span>
-          </div>
-          <div class="flex justify-between px-2.5 mt-2 text-xs">
-            <span>40</span>
-            <span>50</span>
-            <span>60</span>
-            <span>70</span>
-            <span>80</span>
-            <span>90</span>
-            <span>00</span>
-            <span>10</span>
-            <span>20</span>
-            <span>30</span>
-          </div>
-        </div>
-
-        <div class="divider divider-secondary">IMDB Rating</div>
-        <li>
-            <div class="rating gap-1">
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-red-400"    aria-label="01star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-red-300"    aria-label="02star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-orange-300" aria-label="03star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-orange-400" aria-label="04star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-yellow-400" aria-label="05star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-yellow-300" aria-label="06star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-lime-300"   aria-label="07star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-lime-400"   aria-label="08star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-green-400"  aria-label="09star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-blue-500"   aria-label="10star" checked="checked" />
-            </div>
-        </li>
-
-      </ul>
-    </div>
-  </div>
-  `,
-  styles: `
-.my-padded-tags-form>input {
-  margin-right: 0.5rem;
-  margin-bottom: 0.4rem;
-}
-
-.mybox {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-}
-
-.myitem {
-  padding: 5px;
-}
-
-.myitem {
-  padding: 10px;
-  /* DEBUG */
-  /*
-  overflow-x: hidden;
-  border-color: #f00;
-  border: solid;
-  */
-}
-`,
+  templateUrl: './filterbar.html',
+  styleUrl: './filterbar.css'
 })
 export class FilterBar {
   items = [
@@ -166,6 +35,12 @@ export class FilterBar {
    { id: 19, yr: 2015, watched: '2025-10', culture: 'jp', rating: '7.5', imdb: 'https://www.imdb.com/title/tt2964120/',  title: 'Wood Job!', description: 'An amazing Japanese movie about differences of city life and country life.', img: 'https://image.tmdb.org/t/p/w600_and_h900_face/gvo0367R3pWJJrwGDRMMOCZnSwY.jpg' },
    { id: 20, yr: 2021, watched: '2024-11', culture: 'us', rating: '8.0', imdb: 'https://www.imdb.com/title/tt10366460/', title: 'CODA', description: 'A movie about a fisher family of who parents and son are deaf.', img: 'https://image.tmdb.org/t/p/w600_and_h900_face/BzVjmm8l23rPsijLiNLUzuQtyd.jpg' },
   ];
+
+  get filteredItems() {
+    return this.items.filter( e => {
+      return e.yr >= 1990;
+    });
+  }
 
   drawerOpen = false;
 

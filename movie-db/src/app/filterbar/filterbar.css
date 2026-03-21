@@ -1,0 +1,24 @@
+
+.my-padded-tags-form>input {
+  margin-right: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.mybox {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.myitem {
+  padding: 5px;
+}
+
+.myitem {
+  padding: 10px;
+  /* DEBUG */
+  /*
+  overflow-x: hidden;
+  border-color: #f00;
+  border: solid;
+  */
+}
