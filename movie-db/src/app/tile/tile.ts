@@ -10,10 +10,10 @@ import { Wheel } from '../wheel/wheel';
     <div class="card bg-base-100 w-96 shadow-sm">
       <figure>
         <a target="_blank" rel="noopener noreferrer" href="{{imdb}}">
-         <!--
-         <app-hoverimg imgUrl="{{image}}"/>
-         -->
+         <!-- DEBUG IMAGE
          <app-hoverimg imgUrl="https://flxt.tmsimg.com/assets/p12407944_p_v10_ac.jpg"/>
+         -->
+         <app-hoverimg imgUrl="{{image}}"/>
         </a>
         <app-wheel progress="{{rating}}"/>
       </figure>
