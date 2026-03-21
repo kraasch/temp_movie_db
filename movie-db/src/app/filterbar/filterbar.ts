@@ -1,4 +1,6 @@
 
+import { ReactiveFormsModule, FormsModule, FormControl, FormGroup } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Tile }      from '../tile/tile';
 import { TopNav }    from '../topnav/topnav';
@@ -7,7 +9,7 @@ import { CookieBar } from '../cookiebar/cookiebar';
 
 @Component({
   selector: 'app-filterbar',
-  imports: [Tile, TopNav, BotFooter, CookieBar],
+  imports: [Tile, TopNav, BotFooter, CookieBar, CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './filterbar.html',
   styleUrl: './filterbar.css'
 })
@@ -36,16 +38,56 @@ export class FilterBar {
    { id: 20, yr: 2021, watched: '2024-11', culture: 'us', rating: '8.0', imdb: 'https://www.imdb.com/title/tt10366460/', title: 'CODA', description: 'A movie about a fisher family of who parents and son are deaf.', img: 'https://image.tmdb.org/t/p/w600_and_h900_face/BzVjmm8l23rPsijLiNLUzuQtyd.jpg' },
   ];
 
+  // filter defaults.
+  minYear = 0;
+  heartRating = '8';
+  cultures: string[] = [];
+  myfilters = new FormGroup({
+    searchName: new FormControl('')
+  });
+
+  // computed filtered items list.
   get filteredItems() {
-    return this.items.filter( e => {
-      return e.yr >= 1990;
+    let filtered = this.items.filter( e => {
+      const searchName = this.myfilters.get('searchName')?.value?.toLowerCase() ?? '';
+      console.log(searchName);
+      // apply decade filter.
+      return e.yr >= 1950 + (this.minYear * 10) &&
+           // apply search filter.
+           (searchName === '' || e.title.toLowerCase().includes(searchName)) &&
+           // apply heart filter.
+           parseFloat(e.rating) >= parseFloat(this.heartRating) &&
+           parseFloat(e.rating) <= (parseFloat(this.heartRating) + 1.0);
     });
+    // if there is culture tags set, then apply the filter.
+    if (this.cultures.length > 0) {
+      // apply culture tags filter.
+      filtered = filtered.filter( e =>
+        this.cultures.includes(e.culture)
+      );
+    }
+    return filtered;
   }
 
+  // updates cultures array when a tag was set or unset.
+  updateCultureTags(culture: string, checked: boolean) {
+    if (checked && !this.cultures.includes(culture)) {
+      this.cultures.push(culture);
+    } else if (!checked) {
+      this.cultures = this.cultures.filter(tag => tag !== culture);
+    }
+  }
+
+  // resets culture array to empty.
+  resetFilters() {
+    this.cultures = [];
+  }
+
+  // default position of the filter bar (visible or not).
   drawerOpen = false;
 
-  addItem(newItem: string) {
-    console.log(newItem);
+  // opens the filter
+  showFilterBar(newItem: string) {
     this.drawerOpen = true;
   }
 }

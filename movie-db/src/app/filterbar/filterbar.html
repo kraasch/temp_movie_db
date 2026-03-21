@@ -12,7 +12,7 @@
       <!-- Page content here
         <label for="my-drawer-1" class="btn drawer-button">Filter</label>
       -->
-      <app-topnav (newItemEvent)="addItem($event)" />
+      <app-topnav (newItemEvent)="showFilterBar($event)" />
       <div class="mybox">
       @for (item of filteredItems; track item.id) {
       <app-tile
@@ -41,25 +41,32 @@
         <!-- Sidebar content here -->
         <div class="divider divider-secondary">Search</div>
         <li>
-          <input type="text" placeholder="Type here" class="input" />
+          <form [formGroup]="myfilters">
+          <input formControlName="searchName" type="text" placeholder="Type here" class="input" />
+          </form>
         </li>
 
         <div class="divider divider-secondary">Culture</div>
         <form class="my-padded-tags-form">
-          <input class="btn btn-square" type="reset" value="×"/>
-          <input aria-label="Japan"   class="btn" type="checkbox" name="frameworks" />
-          <input aria-label="Germany" class="btn" type="checkbox" name="frameworks" />
-          <input aria-label="USA"     class="btn" type="checkbox" name="frameworks" />
-          <input aria-label="Italy"   class="btn" type="checkbox" name="frameworks" />
-          <input aria-label="Sweden"  class="btn" type="checkbox" name="frameworks" />
-          <input aria-label="Korea"   class="btn" type="checkbox" name="frameworks" />
-          <input aria-label="France"  class="btn" type="checkbox" name="frameworks" />
-          <input aria-label="Mexico"  class="btn" type="checkbox" name="frameworks" />
+          <input class="btn btn-square" type="reset" value="×" (click)="resetFilters()"/>
+          <input #jpCheck (change)="updateCultureTags('jp', jpCheck.checked)" aria-label="Japan"   class="btn" type="checkbox" name="frameworks" />
+          <input #deCheck (change)="updateCultureTags('de', deCheck.checked)" aria-label="Germany" class="btn" type="checkbox" name="frameworks" />
+          <input #usCheck (change)="updateCultureTags('us', usCheck.checked)" aria-label="USA"     class="btn" type="checkbox" name="frameworks" />
+          <input #itCheck (change)="updateCultureTags('it', itCheck.checked)" aria-label="Italy"   class="btn" type="checkbox" name="frameworks" />
+          <input #svCheck (change)="updateCultureTags('sv', svCheck.checked)" aria-label="Sweden"  class="btn" type="checkbox" name="frameworks" />
+          <input #koCheck (change)="updateCultureTags('ko', koCheck.checked)" aria-label="Korea"   class="btn" type="checkbox" name="frameworks" />
+          <input #frCheck (change)="updateCultureTags('fr', frCheck.checked)" aria-label="France"  class="btn" type="checkbox" name="frameworks" />
+          <input #mxCheck (change)="updateCultureTags('mx', mxCheck.checked)" aria-label="Mexico"  class="btn" type="checkbox" name="frameworks" />
         </form>
 
         <div class="divider divider-secondary">Decades</div>
+        <label>Exclude decades:</label>
+        <!-- exclude from left -->
         <div class="w-full max-w-xs">
-          <input type="range" min="0" max="9" value="9" class="range" step="1" />
+          <input type="range" min="0" max="9" value="0" class="range" step="1"
+            [value]="minYear"
+            (input)="minYear = +$any($event.target).value"
+          />
           <div class="flex justify-between px-2.5 mt-2 text-xs">
             <span>|</span>
             <span>|</span>
@@ -86,19 +93,20 @@
           </div>
         </div>
 
-        <div class="divider divider-secondary">IMDB Rating</div>
+        <div class="divider divider-secondary">Rating</div>
         <li>
+          <label>Select IMDB rating:</label>
             <div class="rating gap-1">
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-red-400"    aria-label="01star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-red-300"    aria-label="02star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-orange-300" aria-label="03star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-orange-400" aria-label="04star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-yellow-400" aria-label="05star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-yellow-300" aria-label="06star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-lime-300"   aria-label="07star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-lime-400"   aria-label="08star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-green-400"  aria-label="09star" />
-              <input type="radio" name="my-heart-rating" class="mask mask-heart bg-blue-500"   aria-label="10star" checked="checked" />
+              <input value="0" [(ngModel)]="heartRating" type="radio" name="my-heart-rating" class="mask mask-heart bg-red-400"    aria-label="01star" />
+              <input value="1" [(ngModel)]="heartRating" type="radio" name="my-heart-rating" class="mask mask-heart bg-red-300"    aria-label="02star" />
+              <input value="2" [(ngModel)]="heartRating" type="radio" name="my-heart-rating" class="mask mask-heart bg-orange-300" aria-label="03star" />
+              <input value="3" [(ngModel)]="heartRating" type="radio" name="my-heart-rating" class="mask mask-heart bg-orange-400" aria-label="04star" />
+              <input value="4" [(ngModel)]="heartRating" type="radio" name="my-heart-rating" class="mask mask-heart bg-yellow-400" aria-label="05star" />
+              <input value="5" [(ngModel)]="heartRating" type="radio" name="my-heart-rating" class="mask mask-heart bg-yellow-300" aria-label="06star" />
+              <input value="6" [(ngModel)]="heartRating" type="radio" name="my-heart-rating" class="mask mask-heart bg-lime-300"   aria-label="07star" />
+              <input value="7" [(ngModel)]="heartRating" type="radio" name="my-heart-rating" class="mask mask-heart bg-lime-400"   aria-label="08star" />
+              <input value="8" [(ngModel)]="heartRating" type="radio" name="my-heart-rating" class="mask mask-heart bg-green-400"  aria-label="09star" />
+              <input value="9" [(ngModel)]="heartRating" type="radio" name="my-heart-rating" class="mask mask-heart bg-blue-500"   aria-label="10star" />
             </div>
         </li>
 
