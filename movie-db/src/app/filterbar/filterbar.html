@@ -40,6 +40,7 @@
 
         <!-- Sidebar content here -->
         <div class="divider divider-secondary">Search</div>
+        <label>Search within movie title:</label>
         <li>
           <form [formGroup]="myfilters">
           <input formControlName="searchName" type="text" placeholder="Type here" class="input" />
@@ -47,6 +48,7 @@
         </li>
 
         <div class="divider divider-secondary">Culture</div>
+        <label>Restrict to following cultures:</label>
         <form class="my-padded-tags-form">
           <input class="btn btn-square" type="reset" value="×" (click)="resetFilters()"/>
           <input #jpCheck (change)="updateCultureTags('jp', jpCheck.checked)" aria-label="Japan"   class="btn" type="checkbox" name="frameworks" />
@@ -95,7 +97,7 @@
 
         <div class="divider divider-secondary">Rating</div>
         <li>
-          <label>Select IMDB rating:</label>
+          <label>Restrict IMDB ratings:</label>
             <div class="rating gap-1">
               <input value="0" [(ngModel)]="heartRating" type="radio" name="my-heart-rating" class="mask mask-heart bg-red-400"    aria-label="01star" />
               <input value="1" [(ngModel)]="heartRating" type="radio" name="my-heart-rating" class="mask mask-heart bg-red-300"    aria-label="02star" />
