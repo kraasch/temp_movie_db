@@ -15,12 +15,13 @@ Demo:
 
 Example pages:
 
-  - https://www.thomann.de/intl/search.html?sw=piano+arius
+  - [Thomann.de](https://www.thomann.de/intl/search.html?sw=piano+arius)
 
 Links:
 
-  - https://daisyui.com/docs/install/angular/?lang=en
-    - component list: https://daisyui.com/components/kbd/
+  - [Angular docs](https://angular.dev/guide/components/inputs)
+  - [DaisyUI docs](https://daisyui.com/docs/install/angular/?lang=en)
+    - component list: https://daisyui.com/components/
 
 ## Notes
 
