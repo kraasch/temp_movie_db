@@ -9,7 +9,7 @@ This project uses
 
 Demo:
 
-  - [Published demo](https://kraasch.github.io/temp_movie_db/) on Github Pages.
+  - [Published demo](https://kraasch.github.io/demo_movie_db/) on Github Pages.
 
 ## Resources
 
