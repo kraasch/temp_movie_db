@@ -10,5 +10,5 @@ upload:
 	ssh_deploy ssh_deploy.conf
 
 topages:
-	cd ./movie-db/ && ng build --output-path docs --base-href=https://kraasch.github.io/temp_movie_db/
+	cd ./movie-db/ && ng build movie-db --output-path docs --base-href=https://kraasch.github.io/temp_movie_db/
 
