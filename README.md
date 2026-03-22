@@ -1,24 +1,32 @@
 
 
-# build a simple movie db
+# My Movie DB
 
-  - angular 21
-  - daisyUI (tailwindCss + postcss)
+This project uses
 
-notes:
+  - Angular 21,
+  - DaisyUI (tailwindCss + postcss).
 
-daisyUI does not provide a dual-handle slider
+Demo:
 
-  - https://github.com/danilo-znamerovszkij/daisy-dual-range/
-    - demo: https://danilo-znamerovszkij.github.io/daisy-dual-range/
-    - https://www.reddit.com/r/tailwindcss/comments/1qpmz2h/i_built_a_daisyuistyled_dual_range_minmax_slider/
+  - [Published demo](https://kraasch.github.io/temp_movie_db/) on Github Pages.
 
-example pages:
+## Resources
+
+Example pages:
 
   - https://www.thomann.de/intl/search.html?sw=piano+arius
 
-links:
+Links:
 
   - https://daisyui.com/docs/install/angular/?lang=en
     - component list: https://daisyui.com/components/kbd/
+
+## Notes
+
+DaisyUI does not provide a dual-handle slider.
+
+  - alternative slider: https://github.com/danilo-znamerovszkij/daisy-dual-range/
+    - demo: https://danilo-znamerovszkij.github.io/daisy-dual-range/
+    - https://www.reddit.com/r/tailwindcss/comments/1qpmz2h/i_built_a_daisyuistyled_dual_range_minmax_slider/
 
