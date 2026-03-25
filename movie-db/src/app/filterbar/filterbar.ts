@@ -54,7 +54,7 @@ export class FilterBar {
       const searchName = this.myfilters.get('searchName')?.value?.toLowerCase() ?? '';
       const searchBody = this.myfilters.get('searchBody')?.value?.toLowerCase() ?? '';
       const heartRating = parseFloat(this.heartRating);
-      console.log(searchName);
+      // console.log(searchName);
       // apply decade filter.
       return e.yr >= 1950 + (this.minYear * 10) &&
            // apply name search filter.
